@@ -1,0 +1,5 @@
+[
+  {"nome": "R1", "host": "127.0.0.1", "porta": 22, "usuario": "r1"},
+  {"nome": "R2", "host": "127.0.0.1", "porta": 22, "usuario": "r2"},
+  {"nome": "R3", "host": "127.0.0.1", "porta": 22, "usuario": "r3"}
+]

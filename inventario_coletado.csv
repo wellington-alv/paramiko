@@ -1,0 +1,4 @@
+Dispositivo;IP;Status;whoami;hostname;uname_r;uptime_p;Erro
+R1;127.0.0.1;Sucesso;r1;par391894b;6.18.33.2-microsoft-standard-WSL2;up 9 minutes;
+R2;127.0.0.1;Sucesso;r2;par391894b;6.18.33.2-microsoft-standard-WSL2;up 9 minutes;
+R3;127.0.0.1;Sucesso;r3;par391894b;6.18.33.2-microsoft-standard-WSL2;up 9 minutes;

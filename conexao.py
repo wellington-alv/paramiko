@@ -2,31 +2,32 @@ import os
 import paramiko
 
 
-def conectar(disp, timeout=10, sock=None):
-    """Abre uma conexão SSH com o dispositivo descrito no inventário."""
+def conectar(disp, sock=None):
     cliente = paramiko.SSHClient()
-    cliente.load_system_host_keys()
     cliente.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+    # Busca a chave id_redes gerada anteriormente, se existir
+    chave_padrao = os.path.expanduser("~/.ssh/id_redes")
+    chave = disp.get("chave") or (chave_padrao if os.path.exists(chave_padrao) else None)
+    
+    # Busca a senha no dicionário ou na variável de ambiente SSH_SENHA
+    senha = disp.get("senha") or os.environ.get("SSH_SENHA", "Redes@2026")
+
     cliente.connect(
         hostname=disp["host"],
         port=disp.get("porta", 22),
         username=disp["usuario"],
-        password=os.environ.get("SSH_SENHA"),
-        key_filename=disp.get("chave"),
-        timeout=timeout,
-        banner_timeout=timeout,
-        auth_timeout=timeout,
-        look_for_keys=False,
-        allow_agent=False,
+        password=senha,
+        key_filename=chave,
         sock=sock,
     )
     return cliente
 
 
-def executar(cliente, comando, timeout=15):
-    """Executa um comando e devolve (código_de_saída, saída, erro)."""
-    _, out, err = cliente.exec_command(comando, timeout=timeout)
-    saida = out.read().decode().strip()
-    erro = err.read().decode().strip()
-    codigo = out.channel.recv_exit_status()
-    return codigo, saida, erro
+def executar(cliente, comando):
+    """Executa um único comando via SSH e retorna (status, stdout, stderr)."""
+    stdin, stdout, stderr = cliente.exec_command(comando)
+    status = stdout.channel.recv_exit_status()
+    saida = stdout.read().decode(errors="ignore")
+    erro = stderr.read().decode(errors="ignore")
+    return status, saida, erro

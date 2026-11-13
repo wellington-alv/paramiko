@@ -1,0 +1,18 @@
+2026-11-12 21:20:59 [INFO] === Iniciando rotina automatizada de backup ===
+2026-11-12 21:20:59 [INFO] Connected (version 2.0, client OpenSSH_10.2p1)
+2026-11-12 21:20:59 [INFO] Authentication (publickey) successful!
+2026-11-12 21:21:02 [INFO] [chan 1] Opened sftp connection (server version 3)
+2026-11-12 21:21:02 [INFO] [R1] SUCESSO: Backup salvo em 'backups/R1/2026-11-12_212059.cfg'.
+2026-11-12 21:21:02 [INFO] [chan 1] sftp session closed.
+2026-11-12 21:21:02 [INFO] Connected (version 2.0, client OpenSSH_10.2p1)
+2026-11-12 21:21:02 [INFO] Authentication (publickey) successful!
+2026-11-12 21:21:02 [INFO] [chan 1] Opened sftp connection (server version 3)
+2026-11-12 21:21:02 [INFO] [R2] SUCESSO: Backup salvo em 'backups/R2/2026-11-12_212102.cfg'.
+2026-11-12 21:21:02 [INFO] [chan 1] sftp session closed.
+2026-11-12 21:21:02 [INFO] Connected (version 2.0, client OpenSSH_10.2p1)
+2026-11-12 21:21:02 [INFO] Authentication (publickey) successful!
+2026-11-12 21:21:02 [INFO] [chan 1] Opened sftp connection (server version 3)
+2026-11-12 21:21:03 [INFO] [R3] SUCESSO: Backup salvo em 'backups/R3/2026-11-12_212102.cfg'.
+2026-11-12 21:21:03 [INFO] [chan 1] sftp session closed.
+2026-11-12 21:21:03 [INFO] === Rotina de backup finalizada ===
+
